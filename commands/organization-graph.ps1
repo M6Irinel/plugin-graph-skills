@@ -1,4 +1,5 @@
 param(
+    [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$folders = @(".")
 )
 
@@ -31,7 +32,8 @@ foreach ($folder in $folders) {
 
     $i = 1
     foreach ($f in $files) {
-        Add-Content -LiteralPath $mdFile -Value "$i $($f.FullName)" -Encoding UTF8
+        $relPath = "\" + $f.FullName.Substring($projectRoot.TrimEnd('\').Length).TrimStart('\')
+        Add-Content -LiteralPath $mdFile -Value "$i $relPath" -Encoding UTF8
         $i++
     }
 

@@ -3,8 +3,10 @@ param(
     [Parameter(Mandatory = $true)][string]$folder
 )
 
-# Map file path -> file index, reading the FILES section written by organization-graph.ps1.
-# Lines look like: "12 C:\path\to\file.ts". Read once (symbols not appended yet).
+$projectRoot = (Get-Location).Path
+
+# Map relative file path -> file index, reading the FILES section written by organization-graph.ps1.
+# Lines look like: "12 \src\file.ts". Read once (symbols not appended yet).
 $indexMap = @{}
 foreach ($line in Get-Content -LiteralPath $mdFile) {
     if ($line -match '^\s*(\d+)\s+(.+)$') {
@@ -19,7 +21,8 @@ foreach ($file in $files) {
     # Skip Blade templates
     if ($file.Name -like '*.blade.php') { continue }
 
-    $index = $indexMap[$file.FullName]
+    $relPath = "\" + $file.FullName.Substring($projectRoot.TrimEnd('\').Length).TrimStart('\')
+    $index = $indexMap[$relPath]
     if (-not $index) { $index = '?' }
 
     # Each pattern: Kind (f/c), Regex (group 1 = symbol name, unless Group=0 -> use file BaseName), Span (approx line range)
