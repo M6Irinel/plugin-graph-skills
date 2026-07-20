@@ -6,6 +6,8 @@ param(
 $projectRoot = (Get-Location).Path
 $graphFile = Join-Path $projectRoot "graph_project.md"
 
+. "$PSScriptRoot\git-ignore-filter.ps1"
+
 # Rebuild graph index fresh each run (avoids duplicate entries).
 Set-Content -LiteralPath $graphFile -Value "# PROJECT FILES" -Encoding UTF8
 
@@ -26,8 +28,8 @@ foreach ($folder in $folders) {
     }
     $mdFile = Join-Path $projectRoot "$folderName.md"
 
-    # FILE LIST
-    $files = Get-ChildItem -LiteralPath $folder -Recurse -File
+    # FILE LIST (skips anything git-ignored, never descends into heavy dirs)
+    $files = Get-ProjectFiles -folder $folder -projectRoot $projectRoot
     Set-Content -LiteralPath $mdFile -Value "# FILES" -Encoding UTF8
 
     $i = 1

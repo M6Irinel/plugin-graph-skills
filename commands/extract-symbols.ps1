@@ -4,6 +4,7 @@ param(
 )
 
 $projectRoot = (Get-Location).Path
+. "$PSScriptRoot\git-ignore-filter.ps1"
 
 # Map relative file path -> file index, reading the FILES section written by organization-graph.ps1.
 # Lines look like: "12 \src\file.ts". Read once (symbols not appended yet).
@@ -14,7 +15,7 @@ foreach ($line in Get-Content -LiteralPath $mdFile) {
     }
 }
 
-$files = Get-ChildItem -LiteralPath $folder -Recurse -File
+$files = Get-ProjectFiles -folder $folder -projectRoot $projectRoot
 
 foreach ($file in $files) {
 
