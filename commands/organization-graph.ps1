@@ -30,7 +30,7 @@ foreach ($folder in $folders) {
 
     # SYMBOL EXTRACTION
     Add-Content $mdFile "`n# SYMBOLS"
-    powershell -ExecutionPolicy Bypass -File "$projectRoot\project-graph\commands\extract-symbols.ps1" $mdFile $folder
+    powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\extract-symbols.ps1" $mdFile $folder
 
     # Update graph_project.md
     Add-Content $graphFile "$folderName.md"

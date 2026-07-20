@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "project-graph",
+  "description": "Plugin globale per generare grafi di progetto, memoria AI e traccia modifiche.",
+  "owner": {
+    "name": "M6Irinel",
+    "url": "https://github.com/M6Irinel"
+  },
+  "plugins": [
+    {
+      "name": "project-graph",
+      "description": "Genera grafi di progetto, carica memoria AI e traccia modifiche git.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

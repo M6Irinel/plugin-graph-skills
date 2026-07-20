@@ -1,0 +1,2 @@
+description = "Genera struttura del progetto: indicizza file, funzioni e componenti in file .md"
+prompt = "Run `powershell -ExecutionPolicy Bypass -File \"${CLAUDE_PLUGIN_ROOT}/commands/organization-graph.ps1\" {{args}}` in the project root (pass one or more folder paths as args) and report the result."

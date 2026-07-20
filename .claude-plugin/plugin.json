@@ -1,0 +1,9 @@
+{
+  "name": "project-graph",
+  "description": "Genera grafi di progetto, carica memoria AI e traccia modifiche git.",
+  "version": "1.1.0",
+  "author": {
+    "name": "M6Irinel",
+    "url": "https://github.com/M6Irinel"
+  }
+}
