@@ -1,0 +1,10 @@
+{
+  "name": "project-graph",
+  "version": "1.1.0",
+  "description": "Plugin globale per generare grafi di progetto, memoria AI e traccia modifiche.",
+  "skills_path": "skills/",
+  "commands_path": "bin/",
+  "install": {
+    "copy_to": "%USERPROFILE%/.ai-global-plugins/project-graph"
+  }
+}

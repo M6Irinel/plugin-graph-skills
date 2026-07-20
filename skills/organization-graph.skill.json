@@ -1,0 +1,15 @@
+{
+  "name": "/organization-graph",
+  "description": "Genera file .md nella root del progetto, indicizza file, funzioni e componenti.",
+  "arguments": [
+    {
+      "name": "folders",
+      "type": "list<string>",
+      "description": "Lista di folder da analizzare"
+    }
+  ],
+  "run": {
+    "command": "org-graph.cmd",
+    "args": ["${folders}"]
+  }
+}

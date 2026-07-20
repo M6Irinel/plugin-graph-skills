@@ -1,0 +1,15 @@
+{
+  "name": "/memory-graph",
+  "description": "Carica la memoria del progetto. Se mancano file .md, richiama /organization-graph.",
+  "arguments": [
+    {
+      "name": "model",
+      "type": "string",
+      "description": "Modello AI che deve usare la memoria"
+    }
+  ],
+  "run": {
+    "command": "mem-graph.cmd",
+    "args": ["${model}"]
+  }
+}
