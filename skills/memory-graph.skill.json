@@ -1,6 +1,6 @@
 {
   "name": "/memory-graph",
-  "description": "Carica la memoria del progetto. Se mancano file .md, richiama /organization-graph.",
+  "description": "Carica la memoria del progetto e la fissa in .claude/rules/project-graph.md (auto-caricato ad ogni nuova chat). Se mancano file .md, richiama /organization-graph.",
   "arguments": [
     {
       "name": "model",

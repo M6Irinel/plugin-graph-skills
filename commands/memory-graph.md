@@ -1,6 +1,6 @@
 ---
-description: Carica la memoria del progetto da graph_project.md. Se manca, richiama /organization-graph
+description: Carica la memoria del progetto da graph_project.md e la fissa in .claude/rules/project-graph.md. Se manca, richiama /organization-graph
 allowed-tools: Bash
 ---
 
-Run `powershell -ExecutionPolicy Bypass -File "${CLAUDE_PLUGIN_ROOT}/commands/mem-graph.ps1"` in the project root and show its output as the loaded project memory. If it reports the graph does not exist, tell the user to run /organization-graph first.
+Run `powershell -ExecutionPolicy Bypass -File "${CLAUDE_PLUGIN_ROOT}/commands/mem-graph.ps1"` in the project root and show its output as the loaded project memory. This also writes `.claude/rules/project-graph.md` in the project, an official Claude Code auto-loaded rule file, so future sessions read it at startup without needing this command run again. If it reports the graph does not exist, tell the user to run /organization-graph first.
